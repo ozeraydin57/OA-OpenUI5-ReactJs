@@ -1,26 +1,22 @@
 import React, { Component } from 'react'
-// import { Card, Text } from '@ui5/webcomponents-react'
-// import { spacing } from '@ui5/webcomponents-react-base'
+import { Switch, Route, Redirect } from "react-router-dom";
+import Detail from "./Detail"
+import Home from "./Home"
+import Navigation from './Navigation'
 
 export default class MyApp extends Component {
-    handleClick = () => {
-        alert("başlık tıklandı");
-    }
 
     render() {
         return (
-            <div>
-                {/* <Card
-                    heading="Card bura aga"
-                    subtitle="deneme" style={{ width: "300px" }}
-                    headerInteractive
-                    onHeaderClick={this.handleClick}
-                >
-
-                    <Text style={spacing.sapUiContentPadding}>Kontent burası</Text>
-
-                </Card> */}
-            </div>
+            <>
+            <Navigation></Navigation>
+                <Switch>
+                    <Route path="/home" component={Home} />
+                    <Route path="/detail" component={Detail} />
+                    <Route path="/" component={Home} />
+                    <Redirect from="/" to="/home" />
+                </Switch>
+            </>
         )
     }
 }

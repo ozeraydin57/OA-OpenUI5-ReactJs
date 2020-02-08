@@ -1,23 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { HashRouter } from 'react-router-dom'
+
+
 import './App.css';
 import { ThemeProvider } from "@ui5/webcomponents-react/lib/ThemeProvider";
+import MyApp from './components/MyApp';
 
-import MyApp from './components/MyApp'
-import Navigation from './components/Navigation'
-import MyChart from './components/MyChart';
-
-function App() {
-  return (
-
-    <ThemeProvider withToastContainer>
-      <Navigation></Navigation>
-      <MyApp></MyApp>
-      <MyChart></MyChart>
-    </ThemeProvider>
-
-
-
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <HashRouter>
+        <ThemeProvider withToastContainer>
+          <MyApp></MyApp>
+        </ThemeProvider>
+      </HashRouter>
+    );
+  }
 }
-
-export default App;
