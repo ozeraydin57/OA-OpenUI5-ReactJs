@@ -85,82 +85,82 @@ export default class Home extends Component {
 
 
         return (
-                <FlexBox
-                    justifyContent={FlexBoxJustifyContent.Center}
-                    wrap={FlexBoxWrap.Wrap}
+            <FlexBox
+                justifyContent={FlexBoxJustifyContent.Center}
+                wrap={FlexBoxWrap.Wrap}
+            >
+                <Card
+                    avatar={<Icon name={this.state.chart === "lineChart" ? "line-chart" : "horizontal-bar-chart"} />}
+                    heading="Card grafikler"
+                    subtitle="tıklayarak değiştirin"
+                    style={{ width: "300px", ...spacing.sapUiContentPadding }}
+                    headerInteractive
+                    onHeaderClick={this.handleHeaderClick} >
+
+                    {
+                        this.state.chart === "lineChart" ?
+                            <LineChart datasets={datasets} labels={labels} loading={this.state.loading} />
+                            :
+                            <BarChart datasets={datasets} labels={labels} loading={this.state.loading} />
+                    }
+                </Card>
+
+                <Card
+                    heading="Progress"
+                    subtitle="List"
+                    style={{ width: "300px", ...spacing.sapUiContentPadding }}
+                    avatar={<Icon name="list" />}
+                    headerInteractive
+                    onHeaderClick={this.handleProgressHeaderClick}
                 >
-                    <Card
-                        avatar={<Icon name={this.state.chart === "lineChart" ? "line-chart" : "horizontal-bar-chart"} />}
-                        heading="Card grafikler"
-                        subtitle="tıklayarak değiştirin"
-                        style={{ width: "300px", ...spacing.sapUiContentPadding }}
-                        headerInteractive
-                        onHeaderClick={this.handleHeaderClick} >
-
-                        {
-                            this.state.chart === "lineChart" ?
-                                <LineChart datasets={datasets} labels={labels} loading={this.state.loading} />
-                                :
-                                <BarChart datasets={datasets} labels={labels} loading={this.state.loading} />
-                        }
-                    </Card>
-
-                    <Card
-                        heading="Progress"
-                        subtitle="List"
-                        style={{ width: "300px", ...spacing.sapUiContentPadding }}
-                        avatar={<Icon name="list" />}
-                        headerInteractive
-                        onHeaderClick={this.handleProgressHeaderClick}
-                    >
-                        <List>
-                            <StandardListItem info="finished" infoState={ValueState.Success}>
-                                Activity 1
+                    <List>
+                        <StandardListItem info="finished" infoState={ValueState.Success}>
+                            Activity 1
                         </StandardListItem>
-                            <StandardListItem info="failed" infoState={ValueState.Error}>
-                                Activity 2
+                        <StandardListItem info="failed" infoState={ValueState.Error}>
+                            Activity 2
                         </StandardListItem>
-                            <StandardListItem
-                                info="in progress"
-                                infoState={ValueState.Warning}
-                                style={{ height: "80px" }}>
-                                <FlexBox direction={FlexBoxDirection.Column}>
-                                    <Title level={TitleLevel.H5}>Activity 3</Title>
-                                    <ProgressIndicator
-                                        displayValue="89%"
-                                        percentValue={89}
-                                        width="180px"
-                                        state={ValueState.Success} />
-                                </FlexBox>
-                            </StandardListItem>
-                            <StandardListItem
-                                info="in progress"
-                                infoState={ValueState.Warning}
-                                style={{ height: "80px" }}>
-                                <FlexBox direction={FlexBoxDirection.Column}>
-                                    <Title level={TitleLevel.H5}>Activity 4</Title>
-                                    <ProgressIndicator
-                                        displayValue="5%"
-                                        percentValue={5}
-                                        width="180px"
-                                        state={ValueState.Error} />
-                                </FlexBox>
-                            </StandardListItem>
-                        </List>
-                    </Card>
+                        <StandardListItem
+                            info="in progress"
+                            infoState={ValueState.Warning}
+                            style={{ height: "80px" }}>
+                            <FlexBox direction={FlexBoxDirection.Column}>
+                                <Title level={TitleLevel.H5}>Activity 3</Title>
+                                <ProgressIndicator
+                                    displayValue="89%"
+                                    percentValue={89}
+                                    width="180px"
+                                    state={ValueState.Success} />
+                            </FlexBox>
+                        </StandardListItem>
+                        <StandardListItem
+                            info="in progress"
+                            infoState={ValueState.Warning}
+                            style={{ height: "80px" }}>
+                            <FlexBox direction={FlexBoxDirection.Column}>
+                                <Title level={TitleLevel.H5}>Activity 4</Title>
+                                <ProgressIndicator
+                                    displayValue="5%"
+                                    percentValue={5}
+                                    width="180px"
+                                    state={ValueState.Error} />
+                            </FlexBox>
+                        </StandardListItem>
+                    </List>
+                </Card>
 
 
-                    <Card
-                        heading="AnalyticalTable"
-                        avatar={<Icon name="table-view" />}
-                        style={{ width: "900px", ...spacing.sapUiContentPadding }} >
-                        <AnalyticalTable
-                            data={tableData}
-                            columns={tableColumns}
-                            visibleRows={5}
-                        />
-                    </Card>
-                </FlexBox>
+                <Card
+                    heading="AnalyticalTable"
+                    avatar={<Icon name="table-view" />}
+                    style={{ width: "900px", ...spacing.sapUiContentPadding }} >
+                    <AnalyticalTable
+                        data={tableData}
+                        columns={tableColumns}
+                        visibleRows={5}
+                    />
+                </Card>
+            </FlexBox>
         )
     }
 }
