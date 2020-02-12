@@ -23,7 +23,7 @@ export default class Contact extends Component {
 
                         ozeraydin57@gmail.com
                         <br />
-                        <a href="https://ozeraydin.com" target="_blank" >ozeraydin.com</a>
+                        <a href="https://ozeraydin.com" target="_blank" rel="noopener noreferrer">ozeraydin.com</a>
                     </FlexBox>
                 </Card>
             </FlexBox>
